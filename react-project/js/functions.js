@@ -29,6 +29,7 @@ greet(); //if we call it twice we get two out put and so on.
 // we can lso use default value and if we not provid value for variable that value is displayed. e.g
 
 
+
 //function greetUser(userName, message = "shu") {
    // console.log(userName);
    // console.log(message);
@@ -37,7 +38,11 @@ greet(); //if we call it twice we get two out put and so on.
 
 //function must only have one return statement at most. and 
 // function without "return" implicitly return "undefined" e.g
+// triple equal sign for checking equality, e.g 
+console.log(10 === 2); // this give false
+console.log(10 === 10); // this give true
 
+console.log(10 / 2); // to perform math
 
 function greetUser(userName, message = "Aselamu aleycum") {
     //console.log(userName);
@@ -54,3 +59,11 @@ function createGreeting(userName, message = "Aselamu aleycum") {
 }
 let greet1 = createGreeting("siti");
 console.log(greet1);
+
+// exercise
+function combine (a, b, c) {
+    let val = (a * b ) /c;
+    return val;
+}
+let a = combine(2, 5, 3);
+console.log(a);
