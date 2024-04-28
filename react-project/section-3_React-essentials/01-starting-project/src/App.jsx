@@ -1,5 +1,5 @@
 import reactImg from './assets/react-core-concepts.png';
-import componentimg from './assets/components.png';
+import { CORE_CONCEPTS } from './data.js';
 
 function MyFunc() {
   return "aselamu aleycum"
@@ -31,6 +31,7 @@ function Header() {
 // not used in react Header() like this here to call it outside of fun, but in App fun we call like below 1 of the two.
 // we can write <Header></Header> or <Header />
 
+/* WE CAN also use this func like below with desturactering
 function CoreConcept (props) {
   return (
     <li>
@@ -39,7 +40,18 @@ function CoreConcept (props) {
       <p>{props.description}</p>
     </li>
   )
+}*/
+
+function CoreConcept ({image, title, description}) {  // this is object desturactering.
+  return (
+    <li>
+      <img src={image} alt={title}/>
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </li>
+  )
 }
+// instade of line 65 to 67, we can also use <CoreConcept {...CORE_CONCEPTS[0]} /> with the help of spread operator.
 
 function App() {
   return (
@@ -50,12 +62,15 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcept title="Components"
-            description="The core UI building block."
-            image={componentimg} />
-            <CoreConcept title="props" />
-            <CoreConcept />
-            <CoreConcept />
+            <CoreConcept title={CORE_CONCEPTS[0].title}
+            description={CORE_CONCEPTS[0].description}
+            image={CORE_CONCEPTS[0].image} />
+
+            <CoreConcept {...CORE_CONCEPTS[1]} />
+
+            <CoreConcept {...CORE_CONCEPTS[2]} />
+
+            <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
         <h2>Time to get started!</h2>
