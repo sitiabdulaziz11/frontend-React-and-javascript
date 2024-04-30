@@ -1,4 +1,5 @@
 import reactImg from './assets/react-core-concepts.png';
+//import componentImg from './assets/component.png'
 import { CORE_CONCEPTS } from './data.js';
 
 function MyFunc() {
@@ -13,16 +14,13 @@ function genRandomInt(max) {
 
 function Header() {
   //const description = reactDescriptions[genRandomInt(2)] this more leaner
-  // or {description} React concepts you will need for almost any app you are/ we put this line of code on line 21 if we use this way.
-        
-
   return (
       <header>
         <img src={reactImg} alt="Stylized atom}" />
         <h1>React Essentials</h1>
         <p>
        
-        {reactDescriptions[genRandomInt(2)]} React concepts you will need for almost any app you are
+        {reactDescriptions[genRandomInt(2)]}{/*or {description}  */} React concepts you will need for almost any app you are
         going to build!
         </p>
       </header>
@@ -31,7 +29,7 @@ function Header() {
 // not used in react Header() like this here to call it outside of fun, but in App fun we call like below 1 of the two.
 // we can write <Header></Header> or <Header />
 
-/* WE CAN also use this func like below with desturactering
+/* this func used to display A.
 function CoreConcept (props) {
   return (
     <li>
@@ -42,6 +40,7 @@ function CoreConcept (props) {
   )
 }*/
 
+// WE CAN also use this func like below with desturactering
 function CoreConcept ({image, title, description}) {  // this is object desturactering.
   return (
     <li>
@@ -62,6 +61,13 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
+            {/*A
+            <CoreConcept
+            title="Component"
+            description="The core UI building block"
+            image={componentImg}
+            />
+            */ }
             <CoreConcept title={CORE_CONCEPTS[0].title}
             description={CORE_CONCEPTS[0].description}
             image={CORE_CONCEPTS[0].image} />
@@ -78,6 +84,4 @@ function App() {
     </div>
   );
 }
-
-
 export default App;
