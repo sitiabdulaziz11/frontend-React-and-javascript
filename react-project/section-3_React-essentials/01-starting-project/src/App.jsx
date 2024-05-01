@@ -1,55 +1,14 @@
-import reactImg from './assets/react-core-concepts.png';
 //import componentImg from './assets/component.png'
+import Header from './components/Header/Header.jsx';
+import CoreConcept from './components/CoreConcept.jsx';
 import { CORE_CONCEPTS } from './data.js';
+import TabButton from './components/TabButton.jsx';
+
 
 function MyFunc() {
   return "aselamu aleycum"
 }
 
-const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
-
-function genRandomInt(max) {
-  return Math.floor(Math.random() * (max + 1));
-}
-
-function Header() {
-  //const description = reactDescriptions[genRandomInt(2)] this more leaner
-  return (
-      <header>
-        <img src={reactImg} alt="Stylized atom}" />
-        <h1>React Essentials</h1>
-        <p>
-       
-        {reactDescriptions[genRandomInt(2)]}{/*or {description}  */} React concepts you will need for almost any app you are
-        going to build!
-        </p>
-      </header>
-      );
-}
-// not used in react Header() like this here to call it outside of fun, but in App fun we call like below 1 of the two.
-// we can write <Header></Header> or <Header />
-
-/* this func used to display A.
-function CoreConcept (props) {
-  return (
-    <li>
-      <img src={props.image} alt={props.title}/>
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
-    </li>
-  )
-}*/
-
-// WE CAN also use this func like below with desturactering
-function CoreConcept ({image, title, description}) {  // this is object desturactering.
-  return (
-    <li>
-      <img src={image} alt={title}/>
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </li>
-  )
-}
 // instade of line 65 to 67, we can also use <CoreConcept {...CORE_CONCEPTS[0]} /> with the help of spread operator.
 
 function App() {
@@ -80,6 +39,23 @@ function App() {
           </ul>
         </section>
         <h2>Time to get started!</h2>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>{/*menu is used to create alist of buttons*/}
+            {/*<li><button></button></li>
+            <li><button></button></li> this done on separet file
+            with component.*/}
+
+            {/* this our component wrap other components
+            or other content is called component composition.
+            <TabButton>Components</TabButton>*/}
+
+            <TabButton label='Components' />
+            <TabButton label='JSX' />
+            <TabButton label='Props' />
+            <TabButton label='State' />
+          </menu>
+        </section>
       </main>
     </div>
   );
