@@ -41,19 +41,23 @@ function App() {
         <h2>Time to get started!</h2>
         <section id="examples">
           <h2>Examples</h2>
-          <menu>{/*menu is used to create alist of buttons*/}
+          <menu>{/*menu is built-in html element which used to create a list of buttons*/}
             {/*<li><button></button></li>
-            <li><button></button></li> this done on separet file
-            with component.*/}
+            <li><button></button></li> this is repettion and b/c of it, this list button done on separet file
+            by creating new component.*/}
 
-            {/* this our component wrap other components
-            or other content is called component composition.
-            <TabButton>Components</TabButton>*/}
-
-            <TabButton label='Components' />
+            {/* our component "<TabButton>" wrap other components
+            or other content"Components" like this: <TabButton>Components</TabButton> is called component composition. is using children
+            <TabButton label='Components' /> is using Attributes.
             <TabButton label='JSX' />
             <TabButton label='Props' />
             <TabButton label='State' />
+            */}
+            
+            <TabButton>Components</TabButton>
+            <TabButton>Props</TabButton>
+            <TabButton>JSX</TabButton>
+            <TabButton>State</TabButton>
           </menu>
         </section>
       </main>
