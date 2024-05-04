@@ -12,6 +12,10 @@ function MyFunc() {
 // instade of line 65 to 67, we can also use <CoreConcept {...CORE_CONCEPTS[0]} /> with the help of spread operator.
 
 function App() {
+  function handleSelect() {
+    console.log('dd')
+  }
+
   return (
     <div>
       <MyFunc />
@@ -54,11 +58,12 @@ function App() {
             <TabButton label='State' />
             */}
             
-            <TabButton>Components</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>State</TabButton>
+            <TabButton onSelect={handleSelect}>Components</TabButton>
+            <TabButton onSelect={handleSelect}>Props</TabButton>
+            <TabButton onSelect={handleSelect}>JSX</TabButton>
+            <TabButton onSelect={handleSelect}>State</TabButton>
           </menu>
+          Daynamic Content
         </section>
       </main>
     </div>

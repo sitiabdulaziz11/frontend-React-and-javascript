@@ -23,20 +23,20 @@ export default function TabButton({label}) {
 
 */
 // below is object destructuring
-export default function TabButton({children}) {
+export default function TabButton({children, onSelect}) {
     /* in react to add event listeners to elements, by adding a special attribute/props to those elements.
  - special onClick prop is to add click event listener
  -the value for onClick or for any event prop is function.
  - we can define this value func inside of component func. that is allowed to do in js.
   we can define function inside of func and the inner func
   will only be callable inside of this func.*/
-  function handleClick() {
+ 
+  /*function handleClick() {
     console.log('dd')
-  }
-
+  }*/
     return (
         <li>
-            <button onClick={handleClick/*we should use it as value not as func like handleClick()   */}>{children}</button>
+            <button onClick={onSelect}/*{handleClick}we should use it as value not as func like handleClick()*/>{children}</button>
         </li>
     );
 }
