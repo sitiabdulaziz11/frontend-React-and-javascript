@@ -1,4 +1,5 @@
 //import componentImg from './assets/component.png'
+
 import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
 import { CORE_CONCEPTS } from './data.js';
@@ -42,6 +43,7 @@ function App() {
             <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
+        
         <h2>Time to get started!</h2>
         <section id="examples">
           <h2>Examples</h2>
