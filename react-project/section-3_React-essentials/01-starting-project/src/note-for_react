@@ -1,0 +1,11 @@
+by default , react component execute only once.
+you have to tell react if a component should be executed again.
+
+state: in react is registering variables that are handled by react and that are updated with the help of a function that's provided by react.
+
+that tell react the data changed and cause react to update the UI.
+
+In react all function start with "use" called react hooks.
+Rules of Hooks:
+1 this hook function must called directly inside of component function.
+2 only call hooks on the to level not nested with other function.

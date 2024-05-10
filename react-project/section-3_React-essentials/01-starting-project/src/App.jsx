@@ -1,3 +1,4 @@
+import {useState} from 'react'
 //import componentImg from './assets/component.png'
 
 import Header from './components/Header/Header.jsx';
@@ -5,17 +6,38 @@ import CoreConcept from './components/CoreConcept.jsx';
 import { CORE_CONCEPTS } from './data.js';
 import TabButton from './components/TabButton.jsx';
 
-
+export const user = {
+  email: '',
+  password: '',
+  loggedIn: false,
+};
 function MyFunc() {
   return "aselamu aleycum"
-}
+};
 
-// instade of line 65 to 67, we can also use <CoreConcept {...CORE_CONCEPTS[0]} /> with the help of spread operator.
+// instade of A, we can also use <CoreConcept {...CORE_CONCEPTS[0]} /> with the help of spread operator.
 
 function App() {
-  function handleSelect() {
-    console.log('dd')
+//let tabContent = 'please click a button';
+const [selectedTopic, setSelectedTopic] = useState('please click a button');
+
+  function handleSelect(selectedButton) {
+    // selectedButton may be => 'components', 'JSX', 'props', or 'state'
+    //console.log(selectedButton)
+    //tabContent = selectedButton;
+    //console.log(tabContent);
+    setSelectedTopic(selectedButton);
+    console.log(selectedTopic);
+    
   }
+
+  console.log('App component executing');
+
+  const handleLogin = () => {
+        user.email = 'siti@gmail.com';
+        user.password = '123';
+        user.loggedIn = true;
+    }
 
   return (
     <div>
@@ -32,7 +54,7 @@ function App() {
             image={componentImg}
             />
             */ }
-            <CoreConcept title={CORE_CONCEPTS[0].title}
+            {/*A*/}<CoreConcept title={CORE_CONCEPTS[0].title}
             description={CORE_CONCEPTS[0].description}
             image={CORE_CONCEPTS[0].image} />
 
@@ -59,13 +81,16 @@ function App() {
             <TabButton label='Props' />
             <TabButton label='State' />
             */}
-            
-            <TabButton onSelect={handleSelect}>Components</TabButton>
-            <TabButton onSelect={handleSelect}>Props</TabButton>
-            <TabButton onSelect={handleSelect}>JSX</TabButton>
-            <TabButton onSelect={handleSelect}>State</TabButton>
+          
+            <button onClick={handleLogin}>Login</button>
+            <TabButton onSelect={() => handleSelect('component')}>Components</TabButton>
+            <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          Daynamic Content
+          {/*Daynamic Content
+          {tabContent}*/}
+          {selectedTopic}
         </section>
       </main>
     </div>
