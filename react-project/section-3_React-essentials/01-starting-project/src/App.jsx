@@ -1,16 +1,12 @@
 import {useState} from 'react'
 //import componentImg from './assets/component.png'
 
+import {EXAMPLES} from './data.js';
 import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
 import { CORE_CONCEPTS } from './data.js';
 import TabButton from './components/TabButton.jsx';
 
-export const user = {
-  email: '',
-  password: '',
-  loggedIn: false,
-};
 function MyFunc() {
   return "aselamu aleycum"
 };
@@ -19,8 +15,13 @@ function MyFunc() {
 
 function App() {
 //let tabContent = 'please click a button';
-const [selectedTopic, setSelectedTopic] = useState('please click a button');
-
+// useState() ,the value we get here is an array with exactly two elements. when we use stateArray
+//const stateArray = useState('please click a button');
+// but we can use object destructering to store this two value of stateArray.
+//const [selectedTopic, setSelectedTopic] = useState('please click a button');
+//const [selectedTopic, setSelectedTopic] = useState('components');
+const [selectedTopic, setSelectedTopic] = useState();
+// the 1st value os useState is for the 1st variable, and the second value of stateArray in this case for "setSelectedTopic" is the function that we can use to update it.
   function handleSelect(selectedButton) {
     // selectedButton may be => 'components', 'JSX', 'props', or 'state'
     //console.log(selectedButton)
@@ -33,11 +34,19 @@ const [selectedTopic, setSelectedTopic] = useState('please click a button');
 
   console.log('App component executing');
 
-  const handleLogin = () => {
-        user.email = 'siti@gmail.com';
-        user.password = '123';
-        user.loggedIn = true;
-    }
+  let tabContent = <p>Please select a topic.</p>;
+  if (selectedTopic) {
+    tabContent = 
+    <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>
+            {EXAMPLES[selectedTopic].code}
+          </code>
+        </pre>
+      </div>
+  }
 
   return (
     <div>
@@ -82,15 +91,58 @@ const [selectedTopic, setSelectedTopic] = useState('please click a button');
             <TabButton label='State' />
             */}
           
-            <button onClick={handleLogin}>Login</button>
-            <TabButton onSelect={() => handleSelect('component')}>Components</TabButton>
+            <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
+          {tabContent}
           {/*Daynamic Content
-          {tabContent}*/}
-          {selectedTopic}
+          {tabContent}
+          {selectedTopic}*/}
+          {/*{selectedTopic === 'undefined'} <p>Please select a topic.</p> or below*/}
+          
+          {/* alternateve way for condition on react
+           1 
+           {!selectedTopic ? <p>Please select a topic.</p> : null}
+          {selectedTopic ? (<div id="tab-content">
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>
+              {EXAMPLES[selectedTopic].code}
+              </code>
+            </pre>
+          </div>
+          ) : null}
+
+           2 {!selectedTopic ? (
+            <p>Please select a topic.</p>
+          ) : (
+            <div id="tab-content">
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>
+              {EXAMPLES[selectedTopic].code}
+              </code>
+            </pre>
+            </div>
+          )} 
+          3 other alternateve way for condition on react
+          {!selectedTopic && <p>Please select a topic.</p> }
+          {selectedTopic && (
+            <div id="tab-content">
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>
+              {EXAMPLES[selectedTopic].code}
+              </code>
+            </pre>
+          </div>
+          )} with {tabContent} 4 ways of condition
+          */}
         </section>
       </main>
     </div>
