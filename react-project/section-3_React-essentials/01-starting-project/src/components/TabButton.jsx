@@ -21,7 +21,9 @@ export default function TabButton({label}) {
 
 */
 // below is object destructuring
-export default function TabButton({children, onSelect}) {
+export default function TabButton({children, onSelect, isSelected}) {
+    //isSelected return boolean, if it selected true else false}
+    // @10 to set dynamiclly we use {}, which always ues if we need some dynamic or javascript based value.
     /* in react to add event listeners to elements, by adding a special attribute/props to those elements.
    - special onClick prop is to add click event listener
    -the value for onClick or for any event prop is function.
@@ -32,10 +34,11 @@ export default function TabButton({children, onSelect}) {
   
   return (
         <li>
-            <button onClick={onSelect}/*{handleClick}we should use it as value not as func like handleClick()*/>{children}</button>
+            <button /*className="active"this mark all button as active so we set this dynamic value refer @10 */ className={isSelected ? 'active' : ''} onClick={onSelect}/*{handleClick}we should use it as value not as func like handleClick()*/>{children}</button>
         </li>
     );
 }
+// if we want to add class to the button in jsx, we use className.
  /* in js to add clickble // this is imperative code, 
  document.querySelector('button').addEventListener('click', {} => {
     })
