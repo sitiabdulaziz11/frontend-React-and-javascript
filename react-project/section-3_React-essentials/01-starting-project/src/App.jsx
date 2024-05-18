@@ -55,15 +55,20 @@ const [selectedTopic, setSelectedTopic] = useState();
       <main>
         <section id="core-concepts">
           <h2>Core Concepts</h2>
+          {['hello', 'world', 'or', <p>hello</p>, <p>world</p>]}{/*so this means jsx is capable of dealing wth arrays of renderable data e.g array or jsx code */}
           <ul>
+            {/*"H" */}{CORE_CONCEPTS.map((conceptItem) => (<CoreConcept key={conceptItem.title} {...conceptItem}/>))}
+            {/*Warning: Each child in a list should have a unique "key" prop. not solved */}
             {/*A
             <CoreConcept
             title="Component"
             description="The core UI building block"
             image={componentImg}
-            />
-            */ }
-            {/*A*/}<CoreConcept title={CORE_CONCEPTS[0].title}
+            />*/}
+            {/* "H"here we transform CORE_CONCEPTS array of js object to array of jsx elements. we can transform arrays in js with the help of built-in map() method. which produces a new array based on the existing array.  and that function atomatically receives an array item as an input or an argument and the name is up to us. then we can return the code we want to transform this item to. we use map  to output a list of data. */}
+
+            {/* all this indexed js 0-3 replaced by jsx on "H" one line of code.
+            {A}<CoreConcept title={CORE_CONCEPTS[0].title}
             description={CORE_CONCEPTS[0].description}
             image={CORE_CONCEPTS[0].image} />
 
@@ -71,7 +76,7 @@ const [selectedTopic, setSelectedTopic] = useState();
 
             <CoreConcept {...CORE_CONCEPTS[2]} />
 
-            <CoreConcept {...CORE_CONCEPTS[3]} />
+            <CoreConcept {...CORE_CONCEPTS[3]} />*/}
           </ul>
         </section>
         

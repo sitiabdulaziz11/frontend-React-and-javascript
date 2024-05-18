@@ -4,6 +4,7 @@ import jsxImg from './assets/jsx-ui.png';
 import stateImg from './assets/state-mgmt.png';
 
 export const CORE_CONCEPTS = [
+  // here we have array of js objects and jsx is not able to output it, but jsx is capable of outputting an array of jsx elements. so we try to transform this array of js object to array of jsx. so we do it in app.jsx script in side <ul> tag daynamicly.
   {
     image: componentsImg,
     title: 'Components',
@@ -22,8 +23,8 @@ export const CORE_CONCEPTS = [
     description:
       'Make components configurable (and therefore reusable) by passing input data to them.',
   },
-  {
-    image: stateImg,
+  // { to comment out multiple lines at once with single line comment like this // we use "ctrl + /"
+  { image: stateImg,
     title: 'State',
     description:
       'React-managed data which, when changed, causes the component to re-render & the UI to update.',

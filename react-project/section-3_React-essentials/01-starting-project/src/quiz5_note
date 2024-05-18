@@ -1,0 +1,10 @@
+Question 3:
+
+What's the problem with this code?
+<div>
+  {someArray.map(item => <p>{item}</p>)}
+</div>
+
+ the problem with this code. When dynamically outputting a list of elements, every element should receive a unique "key" to help React tell the list items apart.
+
+.map(num => <li key={num}>{num}</li>)
