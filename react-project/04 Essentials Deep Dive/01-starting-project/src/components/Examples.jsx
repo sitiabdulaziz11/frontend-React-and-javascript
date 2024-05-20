@@ -28,30 +28,30 @@ export default function Examples() {
   }
 
     return (
-        <Section id="examples">
-          <h2>Examples</h2>
+        <Section title="Examples" id="examples">
+         {/* <h2>Examples</h2> replaced with title="Examples" the above*/}
           <menu>
             <TabButton
               isSelected={selectedTopic === 'components'}
-              onSelect={() => handleSelect('components')}
-            >
+              onClick={() => handleSelect('components')}
+            >{/*all onSelect replace with onClick */}
               Components
             </TabButton>
             <TabButton
               isSelected={selectedTopic === 'jsx'}
-              onSelect={() => handleSelect('jsx')}
+              onClick={() => handleSelect('jsx')}
             >
               JSX
             </TabButton>
             <TabButton
               isSelected={selectedTopic === 'props'}
-              onSelect={() => handleSelect('props')}
+              onClickt={() => handleSelect('props')}
             >
               Props
             </TabButton>
             <TabButton
               isSelected={selectedTopic === 'state'}
-              onSelect={() => handleSelect('state')}
+              onClick={() => handleSelect('state')}
             >
               State
             </TabButton>
