@@ -27,14 +27,11 @@ export default function Examples() {
       </div>
     );
   }
- {/* buttonsContainer="menu" if we use built-in or {Section} if we use custom tabs ont the component with angle bracket like <Section />, but  just identifyer {Section}, to setting component types Dynamically. we should use string elements for built in elements and curly braces for custom elements   */}
-
- {/* "K" ButtonContainer="menu" we also remove this here and we set it in tabs file for ButtonContainer = 'menu'*/}
+ 
     return (
         <Section title="Examples" id="examples">
-          {/* <h2>Examples</h2> replaced with title="Examples" the above*/}
-          <Tabs 
-        // "K" ButtonContainer="menu" 
+          <Tabs
+          buttonContainer="menu"
           buttons={
           <>
           <TabButton
@@ -60,7 +57,8 @@ export default function Examples() {
               onClick={() => handleSelect('state')}
             >
               State
-            </TabButton></>
+            </TabButton>
+            </>
             }
             >
             {tabContent}
