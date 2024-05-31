@@ -1,0 +1,6 @@
+// setIsEditing(!isEditing);
+// if our new state depends on our previous state CSSMathValue, we should not update the state directly like this. we should use or pass funcn to our setState updating function. 
+
+// the funcn will automatically be called by react and will receive the latest new state value.
+
+// e.g setIsEditing(wasEditing => !wasEditing);
