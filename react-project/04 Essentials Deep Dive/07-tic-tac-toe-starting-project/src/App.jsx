@@ -4,6 +4,7 @@ import Player from "./assets/components/player";
 import GameBoard from "./assets/components/GameBoard.jsx";
 import Log from "./assets/components/Log.jsx";
 import  { WINNING_COMBINATIONS } from "./winning-combinations";
+import GameOver from "./assets/components/GameOver.jsx";
 
 // const WINNING_COMBINATIONS = [
 //   [
@@ -39,10 +40,14 @@ function App() {
   //     if (gameTurns.length > 0 && gameTurns[0].player === 'X') {
   //       currentPlayer = 'O';
   //     } we can replace code "A" with the following code
-
+  
+  const [players, setPlayers] = useState({
+    'X': 'player 1',
+    'O': 'player 2'
+  });
   const activePlayer = deriveActivePlayer(gameTurns);
 
-  let gameBoard = initialGameBoard;
+  let gameBoard = [...initialGameBoard.map(array => [...array])];
 
   for (const turn of gameTurns) {
     const { square, player } = turn;
@@ -65,6 +70,8 @@ function App() {
 
   }
 
+const hasDraw = gameTurns.length === 9 && !winner;
+
   function handleSelectSquare(rowIndex, colIndex) {
     // setActivePlayer((curactivePlayer) => curactivePlayer === 'X' ? 'O' : 'X');
     setGameTurns(prevTurns => {
@@ -83,6 +90,19 @@ function App() {
     });
   }
 
+  function handleRestart() {
+    setGameTurns([]);
+  }
+
+  function handlPlayerNameChange(symbol, newName) {
+    setPlayers(prevPlayers => {
+      return {
+        ...prevPlayers,
+        [symbol]: newName
+      };
+    });
+  }
+// when not to liftState up
   //return <p>Coming soon...</p>;
   return (
    <main>
@@ -105,7 +125,8 @@ function App() {
           <button>Edit</button>
         </li>*/}
       </ol>
-      {winner && <p>You won, {winner}!</p>}
+      {/*{winner && <p>You won, {winner}!</p>} first was this */}
+      {(winner || hasDraw) && <GameBoard winner={winner} onRestart={handleRestart} />}
       <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard}  />{/*turns={gameTurns}*/}{/*activePlayerSymbol={activePlayer}*/}
     </div>
     <Log turns={gameTurns}/>
