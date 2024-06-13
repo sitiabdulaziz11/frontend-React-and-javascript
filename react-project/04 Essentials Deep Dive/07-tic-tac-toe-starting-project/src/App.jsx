@@ -6,6 +6,11 @@ import Log from "./assets/components/Log.jsx";
 import  { WINNING_COMBINATIONS } from "./winning-combinations";
 import GameOver from "./assets/components/GameOver.jsx";
 
+const PLAYERS = {
+  X: 'Player 1',
+  O: 'Player 2'
+};
+
 // const WINNING_COMBINATIONS = [
 //   [
 //     { row: 0, col: 0 },
@@ -30,7 +35,37 @@ function deriveActivePlayer(gameTurns) {
   return currentPlayer;
 }
 
+function deriveGameBoard(gameTurns) {
+  let gameBoard = [...initialGameBoard.map(array => [...array])];
+
+  for (const turn of gameTurns) {
+    const { square, player } = turn;
+    const { row, col } = square;
+
+    gameBoard[row][col] = player;
+  }
+  return gameBoard;
+}
+
+function deriveWinner(gameBoard, players) {
+  let winner;
+
+  for (const combination of WINNING_COMBINATIONS) {
+    const firstSquareSymbol = gameBoard[combination[0].row][combination[0].column];
+    const secondSquareSymbol = gameBoard[combination[2].row][combination[2].column];
+    const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].column];
+
+    if  (firstSquareSymbol &&
+      firstSquareSymbol === secondSquareSymbol && firstSquareSymbol === thirdSquareSymbol
+    ) {
+        winner = players[firstSquareSymbol];
+    }
+
+  }
+}
+
 function App() {
+  const [players, setPlayers] = useState(PLAYERS);
   const [gameTurns, setGameTurns] = useState([]);
   // const [haswinner, setHaswinner] = useState(false);
   // const [activePlayer, setActivePlayer] = useState('X');
@@ -41,36 +76,11 @@ function App() {
   //       currentPlayer = 'O';
   //     } we can replace code "A" with the following code
   
-  const [players, setPlayers] = useState({
-    'X': 'player 1',
-    'O': 'player 2'
-  });
-  const activePlayer = deriveActivePlayer(gameTurns);
-
-  let gameBoard = [...initialGameBoard.map(array => [...array])];
-
-  for (const turn of gameTurns) {
-    const { square, player } = turn;
-    const { row, col } = square;
-
-    gameBoard[row][col] = player;
-  }
   
-  let winner;
-
-  for (const combination of WINNING_COMBINATIONS) {
-    const firstSquareSymbol = gameBoard[combination[0].row][combination[0].column];
-    const secondSquareSymbol = gameBoard[combination[2].row][combination[2].column];
-    const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].column];
-
-    if  (firstSquareSymbol &&
-      firstSquareSymbol === secondSquareSymbol && firstSquareSymbol === thirdSquareSymbol) {
-        winner = firstSquareSymbol;
-    }
-
-  }
-
-const hasDraw = gameTurns.length === 9 && !winner;
+  const activePlayer = deriveActivePlayer(gameTurns);
+  const gameBoard = deriveGameBoard(gameTurns);
+  const winner = deriveWinner(gameBoard, players);
+  const hasDraw = gameTurns.length === 9 && !winner;
 
   function handleSelectSquare(rowIndex, colIndex) {
     // setActivePlayer((curactivePlayer) => curactivePlayer === 'X' ? 'O' : 'X');
@@ -108,8 +118,16 @@ const hasDraw = gameTurns.length === 9 && !winner;
    <main>
     <div id="game-container">
       <ol id="players" className="highlight-player">
-        <Player initialName="Player 1" symbole="X" isActive={activePlayer === 'X'} />
-        <Player initialName="Player 2" symbole="O" isActive={activePlayer === 'O'} />
+        <Player 
+        initialName={PLAYERS.X}
+        symbole="X" isActive={activePlayer === 'X'}
+        onChangeName={handlPlayerNameChange}
+        />
+        <Player
+        initialName={PLAYERS.O}
+        symbole="O" isActive={activePlayer === 'O'}
+        onChangeName={handlPlayerNameChange}
+        />
         {/*<li> this all moved to assets/components/player.jsx, to reduce redundancy and hard codeing.
           <span className="player">
             <span className="player-name">Player 1</span>
