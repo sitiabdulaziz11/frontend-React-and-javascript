@@ -11,14 +11,6 @@ const PLAYERS = {
   O: 'Player 2'
 };
 
-// const WINNING_COMBINATIONS = [
-//   [
-//     { row: 0, col: 0 },
-//     { row: 0, col: 1 },
-//     { row: 0, col: 2 },
-//   ]
-// ];
-
 const initialGameBoard = [
   [null, null, null],
   [null, null, null],
@@ -67,15 +59,6 @@ function deriveWinner(gameBoard, players) {
 function App() {
   const [players, setPlayers] = useState(PLAYERS);
   const [gameTurns, setGameTurns] = useState([]);
-  // const [haswinner, setHaswinner] = useState(false);
-  // const [activePlayer, setActivePlayer] = useState('X');
-
-  // "A" let currentPlayer = 'X';
-
-  //     if (gameTurns.length > 0 && gameTurns[0].player === 'X') {
-  //       currentPlayer = 'O';
-  //     } we can replace code "A" with the following code
-  
   
   const activePlayer = deriveActivePlayer(gameTurns);
   const gameBoard = deriveGameBoard(gameTurns);
@@ -83,13 +66,8 @@ function App() {
   const hasDraw = gameTurns.length === 9 && !winner;
 
   function handleSelectSquare(rowIndex, colIndex) {
-    // setActivePlayer((curactivePlayer) => curactivePlayer === 'X' ? 'O' : 'X');
     setGameTurns(prevTurns => {
-      // "B"let currentPlayer = 'X';
-
-      // if (prevTurns.length > 0 &&prevTurns[0].player === 'X') {
-      //   currentPlayer = 'O';
-      // } we can replace code "B" with the following code
+     
       const currentPlayer = deriveActivePlayer(prevTurns);
 
       const updatedTurns = [{square: {row: rowIndex, col: colIndex}, player: currentPlayer}, ...prevTurns
@@ -112,8 +90,7 @@ function App() {
       };
     });
   }
-// when not to liftState up
-  //return <p>Coming soon...</p>;
+
   return (
    <main>
     <div id="game-container">
@@ -128,22 +105,7 @@ function App() {
         symbole="O" isActive={activePlayer === 'O'}
         onChangeName={handlPlayerNameChange}
         />
-        {/*<li> this all moved to assets/components/player.jsx, to reduce redundancy and hard codeing.
-          <span className="player">
-            <span className="player-name">Player 1</span>
-            <span className="player-symbole">X</span>
-          </span>
-          <button>Edit</button>
-        </li>
-        <li>
-          <span className="player">
-              <span className="player-name">Player 2</span>
-              <span className="player-symbole">O</span>
-          </span>
-          <button>Edit</button>
-        </li>*/}
       </ol>
-      {/*{winner && <p>You won, {winner}!</p>} first was this */}
       {(winner || hasDraw) && <GameBoard winner={winner} onRestart={handleRestart} />}
       <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard}  />{/*turns={gameTurns}*/}{/*activePlayerSymbol={activePlayer}*/}
     </div>
@@ -151,12 +113,4 @@ function App() {
   </main>
   );
 }
-    {/* return (
-      inserted in index.html file above <div id="root"></div>
-      <header>
-      <img src="" alt="" />
-      <h1>React Tic-Tac-Toe</h1>
-    </header> lifting state up, avoiding intersecting of states, perfer computed value and avoid unnecessary state management, deriving state from props
-    )*/}
-
 export default App
