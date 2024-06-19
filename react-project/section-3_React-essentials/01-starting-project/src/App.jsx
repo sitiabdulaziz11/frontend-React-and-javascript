@@ -66,7 +66,7 @@ const [selectedTopic, setSelectedTopic] = useState();
             image={componentImg}
             />*/}
             {/* "H"here we transform CORE_CONCEPTS array of js object to array of jsx elements. we can transform arrays in js with the help of built-in map() method. which produces a new array based on the existing array.  and that function atomatically receives an array item as an input or an argument and the name is up to us. then we can return the code we want to transform this item to. we use map  to output a list of data. */}
-
+            
             {/* all this indexed js 0-3 replaced by jsx on "H" one line of code.
             {A}<CoreConcept title={CORE_CONCEPTS[0].title}
             description={CORE_CONCEPTS[0].description}
