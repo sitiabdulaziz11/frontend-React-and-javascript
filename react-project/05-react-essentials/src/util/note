@@ -1,0 +1,3 @@
+deriving values, computing values based on state is something you 'll do a lot in react.
+
+we use map to turn the array of objects into an array of jsx elements, that will be rendered to the screen by react.
