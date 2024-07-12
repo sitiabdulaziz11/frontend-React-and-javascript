@@ -14,7 +14,6 @@ function App() {
     function handleClick() {
         alert('Button clicked!');
     }
-    // a
 
     return (
         <div id="app">
