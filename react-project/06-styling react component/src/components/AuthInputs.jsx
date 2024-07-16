@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {styled} from 'styled-components';
+import { styled } from 'styled-components';
 
 import Button from './Button.jsx';
 import Input from './Input.jsx';
@@ -31,39 +31,39 @@ export default function AuthInputs() {
 
   const emailNotValid = submitted && !enteredEmail.includes('@');
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
-//`${}` used for inject dynamic value to the string in js
+  //`${}` used for inject dynamic value to the string in js
 
   return (
     <div id="auth-inputs">
       <ControlsDiv>
         {/* <p className='paragraph'> */}
-          {/* <Label className={`lable ${emailNotValid ? 'invalid' : ''}`}>Email</Label>  */}
-          {/* <Label $invalid={emailNotValid}>Email</Label>  */}
-          <Input
-          lable="Email"
+        {/* <Label className={`lable ${emailNotValid ? 'invalid' : ''}`}>Email</Label>  */}
+        {/* <Label $invalid={emailNotValid}>Email</Label>  */}
+        <Input
           // $invalid={emailNotValid}
           invalid={emailNotValid}
-            type="email"
-            // style={{
-            //   backgroundColor: emailNotValid ? '#fed2d2' : '#d1d5db'
-            // }}
-            // className={emailNotValid ? 'invalid' : undefined}
-            onChange={(event) => handleInputChange('email', event.target.value)}
-          />
+          lable={'Email'}
+          type="email"
+          // style={{
+          //   backgroundColor: emailNotValid ? '#fed2d2' : '#d1d5db'
+          // }}
+          // className={emailNotValid ? 'invalid' : undefined}
+          onChange={(event) => handleInputChange('email', event.target.value)}
+        />
         {/* </p> */}
         {/* <p> */}
-          {/* <Label className={`lable ${passwordNotValid ? 'invalid' : ''}`}>Password</Label> */}
-          {/* <Label $invalid={passwordNotValid}>Password</Label> */}
-          <Input
+        {/* <Label className={`lable ${passwordNotValid ? 'invalid' : ''}`}>Password</Label> */}
+        {/* <Label $invalid={passwordNotValid}>Password</Label> */}
+        <Input
           // $invalid={passwordNotValid}
-            invalid={passwordNotValid}
-            label={'Password'}
-            type="password"
-            // className={passwordNotValid ? 'invalid' : undefined}
-            onChange={(event) =>
-              handleInputChange('password', event.target.value)
-            }
-          />
+          invalid={passwordNotValid}
+          label={'Password'}
+          type="password"
+          // className={passwordNotValid ? 'invalid' : undefined}
+          onChange={(event) =>
+            handleInputChange('password', event.target.value)
+          }
+        />
         {/* </p> */}
       </ControlsDiv>
       <div className="actions">
