@@ -1,3 +1,4 @@
 ref used to connect to html elements and to interact with those elements.
 
+trim() is to remove empty string/exace white space at the beginnibg and the end.
 what mean by last but not least?
