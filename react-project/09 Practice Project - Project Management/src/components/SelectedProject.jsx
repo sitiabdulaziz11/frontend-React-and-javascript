@@ -1,4 +1,5 @@
 import React from 'react'
+import Tasks from './Tasks.jsx';
 
 const SelectedProject = ({project, onDelete}) => {
 
@@ -20,7 +21,8 @@ const SelectedProject = ({project, onDelete}) => {
                 <p className='mb-4 whitespace-pre-wrap text-stone-400'>{formattedDate}</p>
                 <p className='text-stone-600 whitespace-pre-wrap '>{project.description}</p>
             </header>
-            TASKS
+            {/* TASKS */}
+            <Tasks />
         </div>
     )
 }
