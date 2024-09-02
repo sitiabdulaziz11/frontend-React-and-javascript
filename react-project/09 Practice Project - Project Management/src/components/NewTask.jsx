@@ -3,13 +3,16 @@ import { useState } from 'react'
 
 const NewTask = ({onAdd}) => {
   // useRef();
-  const [enterdTask, setEnterdTask] = useState();
+  const [enterdTask, setEnterdTask] = useState('');
 
   function handleChange(event) {
     setEnterdTask(event.target.value);
   }
 
   function handleClick() {
+    if (enterdTask.trim() === '') {
+      return;
+    }
     onAdd(enterdTask);
     setEnterdTask('');
   }

@@ -7,7 +7,7 @@ const Tasks = ({ tasks, onAdd, onDelete }) => {
       <h2 className='text-2xl font-bold text-stone-700 mb-4'></h2>
       {/* NEW TASK */}
       <NewTask onAdd={onAdd} />
-      {tasks.length === 0 && { onAdd }(
+      {tasks.length === 0 && (
         <p className='text-stone-800 my-4'>This projects dose not have any tasks yet.
         </p>
       )}
@@ -16,7 +16,9 @@ const Tasks = ({ tasks, onAdd, onDelete }) => {
           {tasks.map((task) => (
             <li key={task.id} className='flex justify-between my-4'>
               <span>{task.text}</span>
-              <button className='text-stone-700 hover:text-red-500'>Clear</button>
+              <button className='text-stone-700 hover:text-red-500' onClick={() => onDelete(task.id)}
+              >
+                Clear</button>
             </li>
           ))}
         </ul>
