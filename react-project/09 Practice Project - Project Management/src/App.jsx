@@ -101,7 +101,7 @@ function App() {
     });
   }
 
-  const selectedProject = projectsState.projects.find(project => project.id === projectsState.selectedProjectId); // used for finding an element in an array by ID.
+  const selectedProject = projectsState.projects.find(project => project.id === projectsState.selectedProjectId); // used for finding an element in an array by ID .
 
   let content = (
   <SelectedProject
