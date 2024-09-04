@@ -1,0 +1,18 @@
+default prop values
+the prop accepts a component identifier as a value
+e.g ButtonContainer="menu"
+
+if ("filled") {
+     return <><button {...props}/>;
+ <span className="button-icon">
+ <Icon>{mode}</Icon>
+ </span>
+ <span>
+ {children}
+ </span>
+ </>
+ 
+ }
+ else {
+     
+ }
