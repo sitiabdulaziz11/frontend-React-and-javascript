@@ -1,0 +1,28 @@
+Which syntax can be used to output dynamic values / JavaScript expressions in JSX?
+{}
+
+Which values can be output as dynamic values in JSX (i.e., between curly braces)?
+any valid js expressions
+
+How should you typically load / use images in React projects?
+import statment that points at the image
+. By "importing" the image, a production-safe path gets generated under the hood.
+
+Which core React concept can increase the reusability of React components?
+props
+
+How do "props" work in React?
+
+How can you assign a dynamic value to an HTML element attribute?
+That's correct. You simply replace the text value you would normally set for attributes with the dynamic (curly-brace-wrapped) value.
+
+Which of the following four code examples for setting & extracting props would NOT work as intended?
+
+I.e., which example will NOT output the text "Priority: 5" on the screen.
+
+That's the right choice.
+The error is subtle but this example does 
+NOT use object destructuring. So here, the "priority" prop is not pulled out of the props object. Instead,
+it's now the entire props object that's named "priority". This wouldn't be a problem since the name is up to you. But it's now the entire 
+object that's output in the paragraph, not the "priority" property. Therefore, the output would not be "Priority: 5" but instead "Priority: [Object object]" (or something like that).
+
