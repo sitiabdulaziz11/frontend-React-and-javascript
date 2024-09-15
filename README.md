@@ -1,6 +1,6 @@
 <h1>To Learn React</h1>
 
-# React project
+# React project.
 
 <h2>what is react?</h2>
 
