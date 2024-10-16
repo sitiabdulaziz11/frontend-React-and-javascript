@@ -1,0 +1,9 @@
+function transformToObjects(numberArray) {
+    // Todo: Add your logic
+    // should return an array of objects
+    
+    let arr = numberArray.map((item) => ({val: item}));
+    return arr;
+}
+const arr1 = transformToObjects([1, 2, 3,]);
+console.log(arr1)

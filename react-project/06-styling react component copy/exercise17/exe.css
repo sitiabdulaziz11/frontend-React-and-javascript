@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(#180d27, #0c0219);
+  color: #e5d9f1;
+  min-height: 100vh;
+}
+
+#app {
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 30rem;
+  text-align: center;
+  border-radius: 6px;
+  background: linear-gradient(#341a89, #3a1967);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  letter-spacing: 0.15rem;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+menu button {
+  width: 5rem;
+  text-align: center;
+  border: none;
+  background: none;
+  color: white;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+menu li:first-child button {
+  background: linear-gradient(#147a42, #0b7555);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+menu li:first-child button:hover {
+  background: linear-gradient(#169d75, #13954e);
+}
+
+menu li:last-child button {
+  background: linear-gradient(#ad2424, #8b2323);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+menu li:last-child button:hover {
+  background: linear-gradient(#bd4e4e, #cd3030);
+}

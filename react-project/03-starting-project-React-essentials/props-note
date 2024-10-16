@@ -1,0 +1,11 @@
+props is being able to pass data into components and then use that data in there.
+
+concept of configuring components is called props.
+
+prop accept all value types
+
+in react commponent function, it is pretty much the same with js but, only accept one parameter which typically called props, but we can name it as we want.
+
+props are custom html attributes set on components.
+react merge all props into a single object.
+props are passed to the commponent function as the first argument by react.

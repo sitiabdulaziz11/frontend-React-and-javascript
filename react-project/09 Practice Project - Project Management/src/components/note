@@ -1,0 +1,6 @@
+ref used to connect to html elements and to interact with those elements.
+
+trim() is to remove empty string/exace white space at the beginnibg and the end.
+what mean by last but not least?
+
+whitespace-pre-wrap: to make space b/n textes line to the next. but not work for me.
