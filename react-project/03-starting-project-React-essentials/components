@@ -1,0 +1,32 @@
+components, JSX & State
+
+Building User interface with components
+Using , sharing & outputing data
+handling user events
+building interface UIs with State
+
+componenets are just a javascript function which are UI building blocks.
+any website or app can be droken down into smaller duilding blocks: called components.
+
+
+
+why components:
+components are :-
+- reusable building blocks
+- related code live together
+- seperation of concerns
+
+component function must follow two rules:
+  1 function name must start with capital letter 
+
+  2 return renderable content,means display on screen by React.
+
+  to create component:
+  create regular js function, give it a suitable name that start with uppercase character and return some jsx code.
+
+  npm install
+  npm run dev
+
+  jsx extention allows developers to describe and creat HTML element by writing HTML murkap code inside of javascript files.
+
+  but jsx is not supported by browther

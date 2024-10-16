@@ -1,0 +1,15 @@
+// How to Fix Localhost Refused to Connect error
+// i changed this function to this 
+//  // https://vitejs.dev/config/
+//  export default defineConfig({
+//    plugins: [react()],
+//  })
+//  // vite.config.js
+
+
+//  export default defineConfig({
+//    plugins: [react()],
+//    server: {
+//      port: 3001 // Specify a different port here
+//    }
+//  });
