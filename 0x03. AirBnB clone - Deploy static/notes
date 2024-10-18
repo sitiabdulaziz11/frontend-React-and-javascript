@@ -1,6 +1,7 @@
 CI/CD (Continuous Integration/Continuous Deployment):
 Imagine you are building a house, and you want to keep adding new rooms over time without disrupting the existing parts of the house too much. In traditional building methods, you might wait until all the rooms are designed and built before adding them to the house. However, with CI/CD, you’re constantly adding rooms, making small improvements every day. If something goes wrong (like a leaky pipe in one room), it’s easier to fix because you're only working on a small section of the house.
 
+
 CI (Continuous Integration):
 Continuous Integration means that every time a developer writes code, it gets automatically tested and integrated (merged) with the existing code. This helps avoid big problems later because you are constantly checking that your new code works with the existing code.
 
