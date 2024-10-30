@@ -1,4 +1,4 @@
-<h1>To Learn React</h1>
+<h1>To Learn React.</h1>
 
 # React project.
 
