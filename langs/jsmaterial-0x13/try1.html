@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width"></meta>
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+    
+    <script>
+        const person = {
+          //name: ["siti", "abdu"],
+          name: {
+            first: "siti",
+            last: "abdu",
+          },
+          age: 23,
+          
+          bio: function () {
+            //console.log(`${this.name[0]} ${this.name[1]} is ${this.age} years old.`);
+            console.log(`${this.name.first} ${this.name.last} is ${this.age} years old.`);
+          },
+          introduceSelf: function () {
+            console.log(`aselamu aleycum I'm ${this.name.first}.`);
+          },
+        };
+        person.age = 33;
+        person.name.last = "salih";
+    </script>
+  </body>
+
+</html>

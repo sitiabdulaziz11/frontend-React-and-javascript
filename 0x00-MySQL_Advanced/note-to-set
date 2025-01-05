@@ -1,0 +1,17 @@
+User
+what is SET?
+ChatGPT
+In SQL, SET is a keyword used in the context of the UPDATE statement to specify the columns that are to be modified and the values they should be updated to.
+
+When you use SET in an UPDATE statement, you provide a list of column assignments separated by commas. Each assignment consists of the column name followed by the new value to which it should be set. Here's the general syntax:
+
+sql
+
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+table_name: Specifies the name of the table you want to update.
+column1, column2, ...: These are the names of the columns you want to update.
+value1, value2, ...: These are the new values that you want to assign to the respective columns.
+WHERE condition: This is an optional clause that allows you to specify which rows should be updated. If omitted, all rows in the table will be updated.
+For example, consider a table named employees with columns salary and department. If you wanted to increase the salary of all employees in the "Engineering" department by 10%, you would use an UPDATE statement with SET like this:

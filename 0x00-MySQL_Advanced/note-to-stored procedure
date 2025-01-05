@@ -1,0 +1,10 @@
+User
+
+what is stored procedure and correction ?
+ChatGPT
+
+A stored procedure is a set of SQL statements that are stored in the database and can be called by name to perform a specific task or set of tasks. It's like a function in programming languages, but it resides within the database management system. Stored procedures can accept parameters, perform operations, and return results. They are commonly used for tasks such as data manipulation, transaction management, and business logic implementation.
+
+In the context of the task, the stored procedure named AddBonus is designed to handle the addition of a correction for a student. It encapsulates the logic required to add a new correction record to the database, including checking if the project exists, creating the project if necessary, and inserting the correction record.
+
+Now, let's talk about "correction" in this context. A "correction" typically refers to an assessment or evaluation of a student's work, often in an educational or academic setting. It could be a graded assignment, a project submission, an exam, or any other form of evaluation. In the context of the task, adding a "correction" involves recording information about a student's performance on a specific project or task. This information usually includes details such as the student's ID (user_id), the project's name (project_name), and the score achieved (score). Storing this information in a database allows for tracking student progress, generating reports, and analyzing performance over time.
