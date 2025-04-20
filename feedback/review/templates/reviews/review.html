@@ -8,11 +8,12 @@
 <body>
  <form action="/" method="POST">
     {% csrf_token %}
-    {% if has_error %}
+    {% comment %} {% if has_error %}
         <p>This form is invalid and please enter a valid username!</p>
-    {% endif %}
-    <label for="uname">Your Name</label>
-    <input id="uname" name="username" type="text">
+    {% endif %} {% endcomment %}
+    {% comment %} <label for="uname">Your Name</label>
+    <input id="uname" name="username" type="text"> {% endcomment %}
+    {{ form1 }}
     <button type="submit">Send</button>
  </form>
 </body>
