@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .forms import ReviewForm
+from .forms import ReviewForms
 from .models import Review
 
 
@@ -18,11 +18,15 @@ def review(request):
         #     return render(request, 'reviews/review.html', {
         #             "has_error": True
         #         })
-        form = ReviewForm(request.POST)
+        form = ReviewForms(request.POST)
         
         if form.is_valid():
         #    print(form.cleaned_data)   
-           review = Review(user_name=form.cleaned_data['user_name'], review)
+           review = Review(
+               user_name=form.cleaned_data['user_name'],
+               review_text=form.cleaned_data['review_text'],
+               rating=form.cleaned_data['rating'])
+           review.save()
            return HttpResponseRedirect('/thank-you')
            
         # print(enterd_username)
@@ -30,7 +34,7 @@ def review(request):
         # return HttpResponseRedirect('/thank-you')
     
     else:
-        form = ReviewForm()
+        form = ReviewForms()
     
     return render(request, 'reviews/review.html', {
         # "has_error": False
