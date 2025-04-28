@@ -2,8 +2,13 @@
 
 {% block title %} All Reviews {% endblock %}
 
-{% content block %}
+{% block content  %}
     <ul>
-        { for  }
+        {% for review in reviews %}
+            <li>
+                {% comment %} {{ review.user_name }} (Rating: {{ review.rating }}) {% endcomment %}
+                <a href="/details">{{ review.user_name }}</a> (Rating: {{ review.rating }})
+            </li>
+        {% endfor %}
     </ul>
 {% endblock %}
