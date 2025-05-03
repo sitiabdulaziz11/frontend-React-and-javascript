@@ -28,7 +28,8 @@
         {{ form1.rating.errors }}
     </div> {% endcomment %}
     {% comment %} to reduce redundancy we can do as follows {% endcomment %}
-    {% for field in form1 %}
+    {% for field in form %}
+    {% comment %} {% for field in form1 %} {% endcomment %}
         <div class="form-control {% if field.errors %}errors {% endif %}">
             {{ field.label_tag }}
             {{ field }}
