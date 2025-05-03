@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views import View
 from django.views.generic.base import TemplateView
+from django.views.generic import ListView, DetailView
 
 from .forms import ReviewForms
 from .models import Review
@@ -97,24 +98,41 @@ class ThankYouViews(TemplateView):
         context["message"] = "This works!"
         return context
 
-class ReviewsListView(TemplateView):
+# class ReviewsListView(TemplateView):
+class ReviewsListView(ListView):
+    
     """ Review list view for templates
     """
     template_name = "reviews/review_list.html"
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        reviews = Review.objects.all()
-        context["reviews"] = reviews
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     reviews = Review.objects.all()
+    #     context["reviews"] = reviews
+    #     return context
+    
+    model = Review   # django featch all reviews by default. 
+    context_object_name = "reviews"
+    
+    # def get_queryset(self):
+    #     base_query = super().get_queryset()
+    #     data = base_query.filter(rating__gt=4)
+    #     return data
 
-class ReviewsDetailView(TemplateView):
+
+# class ReviewsDetailView(TemplateView):
+class ReviewsDetailView(DetailView):
     """Review details
     """
     template_name = "reviews/review_detail.html"
+    model = Review
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        reviews = Review.objects.all()
-        context["reviews"] = reviews
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     review_id = kwargs["id"]
+    #     # reviews = Review.objects.all()
+    #     selected_review = Review.objects.get(pk=review_id)
+    #     # context["reviews"] = reviews
+    #     # context["reviews"] = selected_review
+    #     context["review"] = selected_review
+    #     return context
