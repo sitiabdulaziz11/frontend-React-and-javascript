@@ -7,6 +7,7 @@
         {% comment %} {%  for review in reviews %} {% endcomment %}
             {% comment %} <li> {% endcomment %}
                 <h1>(User Name: {{ review.user_name }}) </h1>
+                {% comment %} <h1>(User Name: {{ object.user_name }}) </h1> {% endcomment %}
                 <p>(Rating: {{review.rating}})</p>
                 <p>(Text: {{review.review_text}})</p>
             {% comment %} <li> {% endcomment %}

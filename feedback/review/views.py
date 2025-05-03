@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
+from django.views.generic.edit import FormView
 
 from .forms import ReviewForms
 from .models import Review
@@ -11,31 +12,46 @@ from .models import Review
 # Create your views here.
 
 
-class ReviewView(View):
+# class ReviewView(View):
+class ReviewView(FormView):
     """
     Class to handle review requests.
     """
-    def get(self, request):
-        """function to handle get request
-        """
-        form = ReviewForms()
-        return render(request, 'reviews/review.html', {
-            "form1": form
-        })
+    # def get(self, request):
+    #     """function to handle get request
+    #     """
+    #     form = ReviewForms()
+    #     return render(request, 'reviews/review.html', {
+    #         "form1": form
+    #     })
         
-    def post(self, request):
-        """
-        function to handle post request
-        """
-        form = ReviewForms(request.POST)
+    # def post(self, request):
+    #     """
+    #     function to handle post request
+    #     """
+    #     form = ReviewForms(request.POST)
         
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/thank-you")
+    #     if form.is_valid():
+    #         form.save()
+    #         return HttpResponseRedirect("/thank-you")
         
-        return render(request, "reviews/review.html", {
-            "form1": form
-        })
+    #     return render(request, "reviews/review.html", {
+    #         "form1": form
+    #     })
+    
+    # to avoid manual get and post method writing
+    
+    form_class = ReviewForms
+    template_name = "reviews/review.html"
+    success_url = "/thank-you"
+    
+    
+    def form_valid(self, form):
+        """To excute when a valid form is submitted.
+        """
+        form.save()
+        return super().form_valid(form)
+        
 
 # def review(request):
 #     """
