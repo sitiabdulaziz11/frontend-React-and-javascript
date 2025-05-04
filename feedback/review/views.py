@@ -3,7 +3,8 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import FormView
+# from django.views.generic.edit import FormView
+from django.views.generic.edit import CreateView  # delete, update
 
 from .forms import ReviewForms
 from .models import Review
@@ -13,7 +14,8 @@ from .models import Review
 
 
 # class ReviewView(View):
-class ReviewView(FormView):
+# class ReviewView(FormView):
+class ReviewView(CreateView):
     """
     Class to handle review requests.
     """
@@ -41,16 +43,19 @@ class ReviewView(FormView):
     
     # to avoid manual get and post method writing
     
+    # form_class = ReviewForms
+    model = Review
     form_class = ReviewForms
+    # fields = "__all__"  # this is to render all fields
     template_name = "reviews/review.html"
     success_url = "/thank-you"
     
     
-    def form_valid(self, form):
-        """To excute when a valid form is submitted.
-        """
-        form.save()
-        return super().form_valid(form)
+    # def form_valid(self, form):
+    #     """To excute when a valid form is submitted.
+    #     """
+    #     form.save()
+    #     return super().form_valid(form)
         
 
 # def review(request):
