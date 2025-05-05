@@ -9,8 +9,10 @@
   <link rel="stylesheet" href="{% static "profiles/styles.css" %}">
 </head>
 <body>
-  <form>
-    <input type="file" />
+  <form action="/profiles" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    {% comment %} <input type="file" name="image" /> {% endcomment %}
     <button>Upload!</button>
   </form>
 </body>
