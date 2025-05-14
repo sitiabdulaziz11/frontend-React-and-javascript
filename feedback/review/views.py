@@ -157,3 +157,14 @@ class ReviewsDetailView(DetailView):
     #     # context["reviews"] = selected_review
     #     context["review"] = selected_review
     #     return context
+    
+    
+class AddFavoriteView(View):
+    """To add favorite feature
+    """
+    def post(self, request):
+        """Post method
+        """
+        review_id = request.POST["review_id"]
+        request.session["favorite_review"] = review_id
+        return HttpResponseRedirect("/reviews/" + review_id)

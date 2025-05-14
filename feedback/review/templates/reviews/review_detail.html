@@ -10,7 +10,11 @@
                 {% comment %} <h1>(User Name: {{ object.user_name }}) </h1> {% endcomment %}
                 <p>(Rating: {{review.rating}})</p>
                 <p>(Text: {{review.review_text}})</p>
+                <form action="/reviews/favorite" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="review_id" value="{{ review.id }}">
                 <button>Favorite</button>
+                </form>
             {% comment %} <li> {% endcomment %}
         {% comment %} {% endfor %} {% endcomment %}
     {% comment %} </ul> {% endcomment %}
