@@ -1,0 +1,41 @@
+{% extends "reviews/base.html" %}
+
+{% block title %}Your Review{% endblock %}
+
+{% block content %}
+ <form action="/" method="POST">
+    {% csrf_token %}
+    {% comment %} {% if has_error %}
+        <p>This form is invalid and please enter a valid username!</p>
+    {% endif %} {% endcomment %}
+    {% comment %} <label for="uname">Your Name</label>
+    <input id="uname" name="username" type="text"> {% endcomment %}
+    
+    {% comment %} {{ form1 }} {% endcomment %}
+    {% comment %} <div class="form-control {% if form1.user_name.errors %}errors {% endif %}">
+        {{ form1.user_name.label_tag }}
+        {{ form1.user_name }}
+        {{ form1.user_name.errors }}
+    </div>
+    <div class="form-control {% if form1.review_text.errors %}errors {% endif %}">
+        {{ form1.review_text.label_tag }}
+        {{ form1.review_text }}
+        {{ form1.review_text.errors }}
+    </div>
+    <div class="form-control {% if form1.rating.errors %}errors {% endif %}">
+        {{ form1.rating.label_tag }}
+        {{ form1.rating }}
+        {{ form1.rating.errors }}
+    </div> {% endcomment %}
+    {% comment %} to reduce redundancy we can do as follows {% endcomment %}
+    {% for field in form %}
+    {% comment %} {% for field in form1 %} {% endcomment %}
+        <div class="form-control {% if field.errors %}errors {% endif %}">
+            {{ field.label_tag }}
+            {{ field }}
+            {{ field.errors }}
+        </div>
+    {% endfor %}
+    <button type="submit">Send</button>
+ </form>
+{% endblock %}
